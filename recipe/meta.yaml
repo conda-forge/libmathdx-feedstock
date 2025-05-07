@@ -1,4 +1,4 @@
-{% set version = "0.2.0" %}
+{% set version = "0.1.2" %}
 {% set soname = version.split(".")[0] %}
 
 package:
@@ -7,11 +7,11 @@ package:
 
 source:
   - url: https://developer.nvidia.com/downloads/compute/cublasdx/redist/cublasdx/libmathdx-Linux-x86_64-{{ version }}.tar.gz  # [linux and x86_64]
-    sha256: 2e4f8fc5616fc901910a515d9b2ba8e32ec705d47ba6280e84cc84cda8ea6e68  # [linux and x86_64]
+    sha256: 30898116ffa8a11494a9d2ff6047bf6c921c5419c730293b48b4b97927a1d1c4  # [linux and x86_64]
   - url: https://developer.nvidia.com/downloads/compute/cublasdx/redist/cublasdx/libmathdx-Linux-aarch64-{{ version }}.tar.gz  # [linux and aarch64]
-    sha256: ead1fd607f7c912bc38aeb7dad0114e69a2d12978aaa66bf42dac21cbc7044ba  # [linux and aarch64]
-  - url: https://developer.nvidia.com/downloads/compute/cublasdx/redist/cublasdx/libmathdx-win32-x86_64-{{ version }}.zip  # [win and x86_64]
-    sha256: 07cab08fb533397103661da84f78a9d6a5b4baab7280cb327dc6e18790e073c5  # [win and x86_64]
+    sha256: ec71177f3c4f17adaaffba5d662763e1e3b4f6ee7cf32c5ca52bbf6d6a2dffd0  # [linux and aarch64]
+  - url: https://developer.nvidia.com/downloads/compute/cublasdx/redist/cublasdx/libmathdx-win64-x86_64-{{ version }}.zip  # [win and x86_64]
+    sha256: c7f8874c965e57f661ccff4e8ec54e102a0ce16ab9c8b5ec7b14569276cf2d77  # [win and x86_64]
 
 build:
   number: 0
