@@ -53,12 +53,12 @@ outputs:
         - cuda-nvrtc
     files:
       - lib/libmathdx.so.*  # [linux]
-      - Library\bin\mathdx.dll  # [win]
+      - Library\bin\mathdx*.dll  # [win]
     test:
       commands:
         - test -L $PREFIX/lib/libmathdx.so.{{ soname }}  # [linux]
         - test -f $PREFIX/lib/libmathdx.so.{{ version }}  # [linux]
-        - if not exist %PREFIX%\Library\bin\mathdx.dll exit 1  # [win]
+        - if not exist %PREFIX%\Library\bin\mathdx64_{{ soname }}.dll exit 1  # [win]
     about:
       summary: The libmathdx runtime library.
       description: >-
