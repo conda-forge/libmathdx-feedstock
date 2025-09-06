@@ -27,7 +27,7 @@ build:
     - mkdir %PREFIX%\Library\bin\  # [win]
     - xcopy "%SRC_DIR%\bin\*.dll" "%PREFIX%\Library\bin\" /E /I /Y  # [win]
     - mkdir %PREFIX%\Library\lib\  # [win]
-    - xcopy "%SRC_DIR%\lib\*" "%PREFIX%\Library\lib\" /E /I /Y  # [win]
+    - xcopy "%SRC_DIR%\lib\x64\*.lib" "%PREFIX%\Library\lib\" /E /I /Y  # [win]
 
 requirements:
   build:
