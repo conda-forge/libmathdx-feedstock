@@ -14,7 +14,7 @@ source:
     sha256: 702a18533a26380fb9ac34de141750f3ca0f0ead6b5a2d23e64939f454a9d05f  # [win and x86_64]
 
 build:
-  number: 0
+  number: 1
   skip: true  # [((cuda_compiler_version or "").startswith("11")) or ((cuda_compiler_version or "None") == "None")]
   script:
     - check-glibc $SRC_DIR/lib*/*.so.*  # [linux]
