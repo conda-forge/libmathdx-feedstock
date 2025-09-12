@@ -6,15 +6,21 @@ package:
   version: {{ version }}
 
 source:
-  - url: https://developer.nvidia.com/downloads/compute/cublasdx/redist/cublasdx/cuda12/libmathdx-Linux-x86_64-{{ version }}-cuda12.0.tar.gz  # [linux and x86_64]
-    sha256: 087207d2ce129c0ebb08eb47064c1509a8d6ff77f45713419ae0cb5f2e0b1488  # [linux and x86_64]
-  - url: https://developer.nvidia.com/downloads/compute/cublasdx/redist/cublasdx/cuda12/libmathdx-Linux-aarch64-{{ version }}-cuda12.0.tar.gz  # [linux and aarch64]
-    sha256: 77f6810becd4d9c89ac378acbf7de2baf89761a2c62dd543773ca71a4f5215c9  # [linux and aarch64]
-  - url: https://developer.nvidia.com/downloads/compute/cublasdx/redist/cublasdx/cuda12/libmathdx-win32-x86_64-{{ version }}-cuda12.0.zip  # [win and x86_64]
-    sha256: 702a18533a26380fb9ac34de141750f3ca0f0ead6b5a2d23e64939f454a9d05f  # [win and x86_64]
+  - url: https://developer.nvidia.com/downloads/compute/cublasdx/redist/cublasdx/cuda12/libmathdx-Linux-x86_64-{{ version }}-cuda12.0.tar.gz  # [linux and x86_64 and (cuda_compiler_version or "None").startswith("12")]
+    sha256: 087207d2ce129c0ebb08eb47064c1509a8d6ff77f45713419ae0cb5f2e0b1488  # [linux and x86_64 and (cuda_compiler_version or "None").startswith("12")]
+  - url: https://developer.nvidia.com/downloads/compute/cublasdx/redist/cublasdx/cuda13/libmathdx-Linux-x86_64-{{ version }}-cuda13.0.tar.gz  # [linux and x86_64 and (cuda_compiler_version or "None").startswith("13")]
+    sha256: c0b24b6d1a5059ae90126f226e6d60c6dde65ef916beed2f133a67a9322f1353  # [linux and x86_64 and (cuda_compiler_version or "None").startswith("13")]
+  - url: https://developer.nvidia.com/downloads/compute/cublasdx/redist/cublasdx/cuda12/libmathdx-Linux-aarch64-{{ version }}-cuda12.0.tar.gz  # [linux and aarch64 and (cuda_compiler_version or "None").startswith("12")]
+    sha256: 77f6810becd4d9c89ac378acbf7de2baf89761a2c62dd543773ca71a4f5215c9  # [linux and aarch64 and (cuda_compiler_version or "None").startswith("12")]
+  - url: https://developer.nvidia.com/downloads/compute/cublasdx/redist/cublasdx/cuda13/libmathdx-Linux-aarch64-{{ version }}-cuda13.0.tar.gz  # [linux and aarch64 and (cuda_compiler_version or "None").startswith("13")]
+    sha256: 4deb496ccb6cf2da668f93d5e3e8e99d41cc728a03ad750428bdda196aa294a2  # [linux and aarch64 and (cuda_compiler_version or "None").startswith("13")]
+  - url: https://developer.nvidia.com/downloads/compute/cublasdx/redist/cublasdx/cuda12/libmathdx-win32-x86_64-{{ version }}-cuda12.0.zip  # [win and x86_64 and (cuda_compiler_version or "None").startswith("12")]
+    sha256: 702a18533a26380fb9ac34de141750f3ca0f0ead6b5a2d23e64939f454a9d05f  # [win and x86_64 and (cuda_compiler_version or "None").startswith("12")]
+  - url: https://developer.nvidia.com/downloads/compute/cublasdx/redist/cublasdx/cuda13/libmathdx-win32-x86_64-{{ version }}-cuda13.0.zip  # [win and x86_64 and (cuda_compiler_version or "None").startswith("13")]
+    sha256: 051b7d62b5900dbb84b0be16d8b8bbbc500663d431a746a99a7aa91c86f6ed90  # [win and x86_64 and (cuda_compiler_version or "None").startswith("13")]
 
 build:
-  number: 0
+  number: 1
   skip: true  # [((cuda_compiler_version or "").startswith("11")) or ((cuda_compiler_version or "None") == "None")]
   script:
     - check-glibc $SRC_DIR/lib*/*.so.*  # [linux]
